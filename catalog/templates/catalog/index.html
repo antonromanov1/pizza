@@ -1,0 +1,60 @@
+{% load static %}
+{% static 'catalog/images' as static_images %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Заказ еды на дом или офис</title>
+    </head>
+
+    <body>
+        <div id="container">
+            <h1><a href="">Заказ еды на дом или офис</a></h1>
+            <nav id="topnav">
+                <a href="">Меню</a> |
+                <a href="">Адреса</a> |
+                <a href="">Акции</a> |
+                <a href="">Служба качества</a> | телефон (903) 700-64-46
+            </nav>
+
+            <div id="content">
+                <h3>Предлагаем вам главные блюда:</h3>
+                <form action="/zakaz" method="post">
+                    <img src="{{ static_images }}/margarita.jpg">
+                    <p>Пицца Маргарита
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </p>
+                    <img src="{{ static_images }}/peperoni.jpg">
+                    <p>Пицца Пеперони
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </p>
+                    <img src="{{ static_images }}/becon.jpg">
+                    <p>Пицца с беконом
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </p>
+                    <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button1.jpg"></a></pre>
+                </form>
+
+
+            </div>
+            <footer>
+                &copy; 2017 РФ, Москва
+            </footer>
+
+        </div>
+    </body>
+</html>
