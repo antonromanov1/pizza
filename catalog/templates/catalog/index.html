@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Заказ еды на дом или офис</title>
@@ -25,11 +26,11 @@
 
     <div id="columns">
         <div id="left">
-            <p><a href="pizza.html"><img src="{{ static_images }}/button1.png"></a></p>
-            <p><a href="hots.html"><img src="{{ static_images }}/button2.png"></a></p>
-            <p><a href="salads.html"><img src="{{ static_images }}/button3.png"></a></p>
-            <p><a href="drinks.html"><img src="{{ static_images }}/button4.png"></a></p>
-            <p><a href="desserts.html"><img src="{{ static_images }}/button5.png"></a></p>
+            <p><a href="{% url 'pizza' %}"><img src="{{ static_images }}/button1.png"></a></p>
+            <p><a href="{% url 'hot' %}"><img src="{{ static_images }}/button2.png"></a></p>
+            <p><a href="{% url 'salads' %}"><img src="{{ static_images }}/button3.png"></a></p>
+            <p><a href="{% url 'drinks' %}"><img src="{{ static_images }}/button4.png"></a></p>
+            <p><a href="{% url 'desserts' %}"><img src="{{ static_images }}/button5.png"></a></p>
         </div>
 
         <div id="center">
