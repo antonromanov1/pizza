@@ -1,60 +1,78 @@
 {% load static %}
 {% static 'catalog/images' as static_images %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Заказ еды на дом или офис</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Заказ еды на дом или офис</title>
+    <link rel="stylesheet" href="{% static 'catalog/styles.css' %}">
+</head>
 
-    <body>
-        <div id="container">
-            <h1><a href="">Заказ еды на дом или офис</a></h1>
-            <nav id="topnav">
-                <a href="">Меню</a> |
-                <a href="">Адреса</a> |
-                <a href="">Акции</a> |
-                <a href="">Служба качества</a> | телефон (903) 700-64-46
-            </nav>
+<body>
+    <div id="header">
+        <h1><a href="">Заказ еды на дом или офис</a></h1>
+        <nav id="topnav">
+            <a href="">Меню</a> |
+            <a href="">Адреса</a> |
+            <a href="">Акции</a> |
+            <a href="">Служба качества</a> | телефон (903) 700-64-46
+        </nav>
+    </div>
+    <img width=100% src="{{ static_images }}/italian-pizza.jpg">
 
-            <div id="content">
-                <h3>Предлагаем вам главные блюда:</h3>
+    <div id="columns">
+        <div id="left">
+            <p><a href="pizza.html"><img src="{{ static_images }}/button1.png"></a></p>
+            <p><a href="hots.html"><img src="{{ static_images }}/button2.png"></a></p>
+            <p><a href="salads.html"><img src="{{ static_images }}/button3.png"></a></p>
+            <p><a href="drinks.html"><img src="{{ static_images }}/button4.png"></a></p>
+            <p><a href="desserts.html"><img src="{{ static_images }}/button5.png"></a></p>
+        </div>
+
+        <div id="center">
+            <h2>Главные блюда:</h2>
                 <form action="/zakaz" method="post">
                     <img src="{{ static_images }}/margarita.jpg">
-                    <p>Пицца Маргарита
+                    <h4>Пицца Маргарита
                         <select name="first">
                             <option value="1">1</option>
                             <option value="1">2</option>
                             <option value="1">3</option>
                         </select>
-                    </p>
+                    </h4>
                     <img src="{{ static_images }}/peperoni.jpg">
-                    <p>Пицца Пеперони
+                    <h4>Пицца Пеперони
                         <select name="first">
                             <option value="1">1</option>
                             <option value="1">2</option>
                             <option value="1">3</option>
                         </select>
-                    </p>
+                    </h4>
                     <img src="{{ static_images }}/becon.jpg">
-                    <p>Пицца с беконом
+                    <h4>Пицца с беконом
                         <select name="first">
                             <option value="1">1</option>
                             <option value="1">2</option>
                             <option value="1">3</option>
                         </select>
-                    </p>
-                    <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button1.jpg"></a></pre>
+                    </h4>
+                    <img src="{{ static_images }}/hot1.png" width=200px>
+                    <h4>Картошка Фри
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </h4>
+                    <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button_zakaz.png"></a></pre>
                 </form>
-
-
-            </div>
-            <footer>
-                &copy; 2017 РФ, Москва
-            </footer>
-
         </div>
-    </body>
+    </div>
+
+    <div id="footer">
+    </div>
+</body>
 </html>
