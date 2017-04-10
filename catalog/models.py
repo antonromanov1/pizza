@@ -1,6 +1,5 @@
-from __future__ import unicode_literals
-
 from django.db import models
 
-class JustForStart(models.Model):
-    pass
+class Meal(models.Model):
+    name = models.CharField(max_length=150)
+    price = models.IntegerField(default=0)

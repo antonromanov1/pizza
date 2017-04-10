@@ -1,1 +1,79 @@
-<h1>template is done succesfully</h1>
+{% load static %}
+{% static 'catalog/images' as static_images %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Пицца</title>
+    <link rel="stylesheet" href="{% static 'catalog/styles.css' %}">
+</head>
+
+<body>
+    <div id="header">
+        <h1><a href="">Заказ еды на дом или офис</a></h1>
+        <nav id="topnav">
+            <a href="">Меню</a> |
+            <a href="">Адреса</a> |
+            <a href="">Акции</a> |
+            <a href="">Служба качества</a> | телефон (903) 700-64-46
+        </nav>
+    </div>
+    <img width=100% src="{{ static_images }}/italian-pizza.jpg">
+
+    <div id="columns">
+        <div id="left">
+            <p><a href="{% url 'pizza' %}"><img src="{{ static_images }}/button1.png"></a></p>
+            <p><a href="{% url 'hot' %}"><img src="{{ static_images }}/button2.png"></a></p>
+            <p><a href="{% url 'salads' %}"><img src="{{ static_images }}/button3.png"></a></p>
+            <p><a href="{% url 'drinks' %}"><img src="{{ static_images }}/button4.png"></a></p>
+            <p><a href="{% url 'desserts' %}"><img src="{{ static_images }}/button5.png"></a></p>
+        </div>
+
+        <div id="center">
+            <h2>Главные блюда:</h2>
+                <form action="/zakaz" method="post">
+                    <img src="{{ static_images }}/margarita.jpg">
+                    <h4>Пицца Маргарита
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </h4>
+                    <img src="{{ static_images }}/peperoni.jpg">
+                    <h4>Пицца Пеперони
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </h4>
+                    <img src="{{ static_images }}/becon.jpg">
+                    <h4>Пицца с беконом
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </h4>
+                    <img src="{{ static_images }}/hot1.png" width=200px>
+                    <h4>Картошка Фри
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </h4>
+                    <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button_zakaz.png"></a></pre>
+                </form>
+        </div>
+    </div>
+
+    <div id="footer">
+    </div>
+</body>
+</html>
