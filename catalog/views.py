@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from models import PizzaHot
+from models import Meal, Pizza, Hot, Salads, Desserts, Drinks
 
 def index(request):
-    return render(request, "catalog/index.html", {"pizza1" : PizzaHot.objects.all()[0].name})
+    pizzas = Pizza.objects.all()
+    hots = Hot.objects.all()[:2]
+    return render(request, "catalog/index.html", {"pizzas" : pizzas, "hots" : hots})
 
 def pizza(request):
     return render(request, "catalog/pizza.html", {})
