@@ -14,7 +14,7 @@
 
 <body>
     <div id="header">
-        <h1><a href="">Заказ еды на дом или офис</a></h1>
+        <h1><a href="{% url 'index' %}">Заказ еды на дом или офис</a></h1>
         <nav id="topnav">
             <a href="">Меню</a> |
             <a href="">Адреса</a> |
@@ -22,7 +22,7 @@
             <a href="">Служба качества</a> | телефон (903) 700-64-46
         </nav>
     </div>
-    <img width=100% src="{{ static_images }}/italian-pizza.jpg">
+    <a href="{% url 'index' %}"><img width=100% src="{{ static_images }}/italian-pizza.jpg"></a>
 
     <div id="columns">
         <div id="left">
@@ -34,40 +34,28 @@
         </div>
 
         <div id="center">
-            <h2>Главные блюда:</h2>
+            <h2>Пицца:</h2>
                 <form action="/zakaz" method="post">
-                    <img src="{{ static_images }}/margarita.jpg">
-                    <h4>Пицца Маргарита
+                    {% for pizza in pizzas %}
+                    <img src="{{ static_images }}/pizza{{ pizza.id }}.jpg">
+                    <h4>{{ pizza.name }}
+                        <select name="first">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="1">3</option>
+                        </select>
+                    </h4>  <h4>Цена:</h4> <h4 style="color: red;">{{ pizza.price }} руб.</h4>
+                    {% endfor %}
+                    {% for hot in hots %}
+                    <img src="{{ static_images }}/hot{{ hot.id }}.jpg" width="350">
+                    <h4>{{ hot.name }}  Цена: {{ hot.price }} руб.
                         <select name="first">
                             <option value="1">1</option>
                             <option value="1">2</option>
                             <option value="1">3</option>
                         </select>
                     </h4>
-                    <img src="{{ static_images }}/peperoni.jpg">
-                    <h4>Пицца Пеперони
-                        <select name="first">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-                    </h4>
-                    <img src="{{ static_images }}/becon.jpg">
-                    <h4>Пицца с беконом
-                        <select name="first">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-                    </h4>
-                    <img src="{{ static_images }}/hot1.png" width=200px>
-                    <h4>Картошка Фри
-                        <select name="first">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-                    </h4>
+                    {% endfor %}
                     <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button_zakaz.png"></a></pre>
                 </form>
         </div>

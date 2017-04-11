@@ -48,13 +48,13 @@
                     {% endfor %}
                     {% for hot in hots %}
                     <img src="{{ static_images }}/hot{{ hot.id }}.jpg" width="350">
-                    <h4>{{ hot.name }}  Цена: {{ hot.price }} руб.
+                    <h4>{{ hot.name }}
                         <select name="first">
                             <option value="1">1</option>
                             <option value="1">2</option>
                             <option value="1">3</option>
                         </select>
-                    </h4>
+                    </h4> <h4>Цена:</h4> <h4 style="color: red;">{{ hot.price }} руб.</h4>
                     {% endfor %}
                     <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button_zakaz.png"></a></pre>
                 </form>

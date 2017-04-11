@@ -7,16 +7,21 @@ def index(request):
     return render(request, "catalog/index.html", {"pizzas" : pizzas, "hots" : hots})
 
 def pizza(request):
-    return render(request, "catalog/pizza.html", {})
+    pizzas = Pizza.objects.all()
+    return render(request, "catalog/pizza.html", {"pizzas" : pizzas})
 
 def hot(request):
-    return render(request, "catalog/hot.html", {})
+    hots = Hot.objects.all()
+    return render(request, "catalog/hot.html", {"hots" : hots})
 
 def salads(request):
-    return render(request, "catalog/salads.html", {})
+    salads = Salads.objects.all()
+    return render(request, "catalog/salads.html", {"salads" : salads})
 
 def drinks(request):
-    return render(request, "catalog/drinks.html", {})
+    drinks = Drinks.objects.all()
+    return render(request, "catalog/drinks.html", {"drinks" : drinks})
 
 def desserts(request):
-    return render(request, "catalog/desserts.html", {})
+    desserts = Desserts.objects.all()
+    return render(request, "catalog/desserts.html", {"desserts" : desserts})
