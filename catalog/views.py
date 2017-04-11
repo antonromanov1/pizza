@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from models import PizzaHot
 
 def index(request):
-    return render(request, "catalog/index.html", {})
+    return render(request, "catalog/index.html", {"pizza1" : PizzaHot.objects.all()[0].name})
 
 def pizza(request):
     return render(request, "catalog/pizza.html", {})

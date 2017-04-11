@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <h1>{{ pizza1 }}</h1>
     <div id="header">
         <h1><a href="">Заказ еды на дом или офис</a></h1>
         <nav id="topnav">
@@ -22,7 +23,7 @@
             <a href="">Служба качества</a> | телефон (903) 700-64-46
         </nav>
     </div>
-    <img width=100% src="{{ static_images }}/italian-pizza.jpg">
+    <a href="{% url 'index' %}"><img width=100% src="{{ static_images }}/italian-pizza.jpg"></a>
 
     <div id="columns">
         <div id="left">
@@ -36,38 +37,7 @@
         <div id="center">
             <h2>Главные блюда:</h2>
                 <form action="/zakaz" method="post">
-                    <img src="{{ static_images }}/margarita.jpg">
-                    <h4>Пицца Маргарита
-                        <select name="first">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-                    </h4>
-                    <img src="{{ static_images }}/peperoni.jpg">
-                    <h4>Пицца Пеперони
-                        <select name="first">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-                    </h4>
-                    <img src="{{ static_images }}/becon.jpg">
-                    <h4>Пицца с беконом
-                        <select name="first">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-                    </h4>
-                    <img src="{{ static_images }}/hot1.png" width=200px>
-                    <h4>Картошка Фри
-                        <select name="first">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                        </select>
-                    </h4>
+                    
                     <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button_zakaz.png"></a></pre>
                 </form>
         </div>
