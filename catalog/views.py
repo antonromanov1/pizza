@@ -25,3 +25,17 @@ def drinks(request):
 def desserts(request):
     desserts = Desserts.objects.all()
     return render(request, "catalog/desserts.html", {"desserts" : desserts})
+
+def testing(request):
+    sl = request.POST
+    ls = []
+    summ = 0
+
+    for x in sl:
+        if "csrf" not in str(x):
+            summ += int(str(sl[x])) * int(Hot.objects.get(name=str(x)).price)
+            if (str(sl[x]) != "0"):
+                ls.append(Hot.objects.get(name=str(x)))
+
+    return render(request, "catalog/testing.html", {"ls": ls, "summ" : str(summ)})
+
