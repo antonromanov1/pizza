@@ -26,16 +26,42 @@ def desserts(request):
     desserts = Desserts.objects.all()
     return render(request, "catalog/desserts.html", {"desserts" : desserts})
 
-def testing(request):
+def order(request):
     sl = request.POST
     ls = []
     summ = 0
+    var = ""
+
+    for string in sl:
+        string = str(string)
+
+        if "pizza" in string or "Pizza" in string:
+            var = "pizza"
+        elif "hot" in string:
+            var = "hot"
+        elif "dessert" in string:
+            var = "dessert"
+        elif "drink" in string:
+            var = "drink"
+        elif "salad" in string:
+            var = "salad"
 
     for x in sl:
         if "csrf" not in str(x):
-            summ += int(str(sl[x])) * int(Hot.objects.get(name=str(x)).price)
+            summ += int(str(sl[x])) * int(Meal.objects.get(name=str(x)).price)
             if (str(sl[x]) != "0"):
-                ls.append(Hot.objects.get(name=str(x)))
+                ls.append(Meal.objects.get(name=str(x)))
 
-    return render(request, "catalog/testing.html", {"ls": ls, "summ" : str(summ)})
+    return render(request, "catalog/order.html", {"ls": ls, "summ" : str(summ), "meal_name" : var })
 
+def address(request):
+    return render(request, "catalog/address.html", {})
+
+def akcii(request):
+    return render(request, "catalog/akcii.html", {})
+
+def staff(request):
+    return render(request, "catalog/staff.html", {})
+
+def howto(request):
+    return render(request, "catalog/howto.html", {})

@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Ваш заказ:</title>
+    <title>Заказ еды на дом или офис</title>
     <link rel="stylesheet" href="{% static 'catalog/styles.css' %}">
 </head>
 
@@ -16,10 +16,10 @@
     <div id="header">
         <h1><a href="{% url 'index' %}">Заказ еды на дом или офис</a></h1>
         <nav id="topnav">
-            <a href="">Меню</a> |
-            <a href="">Адреса</a> |
-            <a href="">Акции</a> |
-            <a href="">Служба качества</a> | телефон (903) 700-64-46
+            <a href="{% url 'address' %}">Адреса</a> |
+            <a href="{% url 'akcii' %}">Акции</a> |
+            <a href="{% url 'staff' %}">Служба качества</a> | 
+            <a href="{% url 'howto' %}" style="color: grey">Сделать заказ</a>
         </nav>
     </div>
     <a href="{% url 'index' %}"><img width=100% src="{{ static_images }}/italian-pizza.jpg"></a>
@@ -34,11 +34,7 @@
         </div>
 
         <div id="center">
-            {% for chosen in ls %}
-                <img src="{{ static_images }}/hot{{ chosen.id }}.jpg" width="350">
-            {% endfor %}
-            <h4>Сумма вашего заказа:</h4>
-            <h4 style="color: red;">{{ summ }} руб.</h4>
+            <p>Адреса у кафе нет</p>
         </div>
     </div>
 

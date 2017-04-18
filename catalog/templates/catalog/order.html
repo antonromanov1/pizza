@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Пицца</title>
+    <title>Ваш заказ:</title>
     <link rel="stylesheet" href="{% static 'catalog/styles.css' %}">
 </head>
 
@@ -34,22 +34,12 @@
         </div>
 
         <div id="center">
-            <h2>Пицца:</h2>
-                <form action="{% url 'order' %}" method="post">
-                    {% csrf_token %}
-                    {% for pizza in pizzas %}
-                    <img src="{{ static_images }}/pizza{{ pizza.id }}.jpg">
-                    <h4>{{ pizza.name }}
-                        <select name="{{ pizza.name }}">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </h4>  <h4>Цена:</h4> <h4 style="color: red;">{{ pizza.price }} руб.</h4>
-                    {% endfor %}
-                    <input type="submit" value="Заказать">
-                </form>
+            {% for chosen in ls %}
+                <img src="{{ static_images }}/{{ meal_name }}{{ chosen.id }}.jpg" width="350">
+                <p>{{ chosen.name }}</p>
+            {% endfor %}
+            <h4>Сумма вашего заказа:</h4>
+            <h4 style="color: red;">{{ summ }} руб.</h4>
         </div>
     </div>
 

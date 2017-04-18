@@ -16,10 +16,10 @@
     <div id="header">
         <h1><a href="{% url 'index' %}">Заказ еды на дом или офис</a></h1>
         <nav id="topnav">
-            <a href="">Меню</a> |
-            <a href="">Адреса</a> |
-            <a href="">Акции</a> |
-            <a href="">Служба качества</a> | телефон (903) 700-64-46
+            <a href="{% url 'address' %}">Адреса</a> |
+            <a href="{% url 'akcii' %}">Акции</a> |
+            <a href="{% url 'staff' %}">Служба качества</a> | 
+            <a href="{% url 'howto' %}" style="color: grey">Сделать заказ</a>
         </nav>
     </div>
     <a href="{% url 'index' %}"><img width=100% src="{{ static_images }}/italian-pizza.jpg"></a>
@@ -35,7 +35,6 @@
 
         <div id="center">
             <h2>Главные блюда:</h2>
-                <form action="/zakaz" method="post">
                     {% for pizza in pizzas %}
                     <img src="{{ static_images }}/pizza{{ pizza.id }}.jpg">
                     <h4>{{ pizza.name }}
@@ -56,8 +55,6 @@
                         </select>
                     </h4> <h4>Цена:</h4> <h4 style="color: red;">{{ hot.price }} руб.</h4>
                     {% endfor %}
-                    <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button_zakaz.png"></a></pre>
-                </form>
         </div>
     </div>
 

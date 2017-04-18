@@ -16,10 +16,10 @@
     <div id="header">
         <h1><a href="{% url 'index' %}">Заказ еды на дом или офис</a></h1>
         <nav id="topnav">
-            <a href="">Меню</a> |
-            <a href="">Адреса</a> |
-            <a href="">Акции</a> |
-            <a href="">Служба качества</a> | телефон (903) 700-64-46
+            <a href="{% url 'address' %}">Адреса</a> |
+            <a href="{% url 'akcii' %}">Акции</a> |
+            <a href="{% url 'staff' %}">Служба качества</a> | 
+            <a href="{% url 'howto' %}" style="color: grey">Сделать заказ</a>
         </nav>
     </div>
     <a href="{% url 'index' %}"><img width=100% src="{{ static_images }}/italian-pizza.jpg"></a>
@@ -35,18 +35,20 @@
 
         <div id="center">
             <h2>Дессерты:</h2>
-                <form action="/zakaz" method="post">
+                <form action="{% url 'order' %}" method="post">
+                    {% csrf_token %}
                     {% for dessert in desserts %}
-                    <img src="{{ static_images }}/dessert{{ dessert.id }}.jpg">
+                    <img src="{{ static_images }}/dessert{{ dessert.id }}.jpg" width="350">
                     <h4>{{ dessert.name }}
-                        <select name="first">
+                        <select name="{{ dessert.name }}">
+                            <option value="0">0</option>
                             <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </h4>  <h4>Цена:</h4> <h4 style="color: red;">{{ dessert.price }} руб.</h4>
                     {% endfor %}
-                    <pre>                                 <a href="/zakaz"><img src="{{ static_images }}/button_zakaz.png"></a></pre>
+                    <input type="submit" value="Заказать">
                 </form>
         </div>
     </div>

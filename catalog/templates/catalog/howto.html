@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Пицца</title>
+    <title>Заказ еды на дом или офис</title>
     <link rel="stylesheet" href="{% static 'catalog/styles.css' %}">
 </head>
 
@@ -34,22 +34,8 @@
         </div>
 
         <div id="center">
-            <h2>Пицца:</h2>
-                <form action="{% url 'order' %}" method="post">
-                    {% csrf_token %}
-                    {% for pizza in pizzas %}
-                    <img src="{{ static_images }}/pizza{{ pizza.id }}.jpg">
-                    <h4>{{ pizza.name }}
-                        <select name="{{ pizza.name }}">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </h4>  <h4>Цена:</h4> <h4 style="color: red;">{{ pizza.price }} руб.</h4>
-                    {% endfor %}
-                    <input type="submit" value="Заказать">
-                </form>
+            <p>Чтобы сделать заказ (можете подсчитать сумму заказа, нажав внизу страницы
+            на кнопку "Заказать") позвоните нам по телефону +7(903) 700-64-46</p>
         </div>
     </div>
 
