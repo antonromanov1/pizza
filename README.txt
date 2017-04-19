@@ -5,3 +5,7 @@
 Название веб-проекта - pizza
 В проекте использована СУБД sqlite, отладочный веб-сервер Django
 
+Для Linux:
+    (предварительно установить Django в Ubuntu: sudo pip install django==1.10)
+    ./manage.py runserver - запускает веб-сервер
+    Далее нужно перейти по ссылке localhost:8000/catalog/index на главную страницу
